@@ -1,0 +1,347 @@
+/* =========================================================
+   responsive.css
+   Mathtified Admin Portal — Responsive Adjustments
+   ========================================================= */
+
+/* ---- Tablet: <= 1024px --------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+
+  .page-body {
+    padding: var(--space-6);
+  }
+
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .app-header {
+    padding: 0 var(--space-5);
+  }
+
+  .app-header__profile-text {
+    display: none;
+  }
+
+  .login-page {
+    grid-template-columns: 0.9fr 1fr;
+  }
+
+  .login-visual__content {
+    padding: var(--space-8);
+  }
+
+  .login-visual__title {
+    font-size: var(--fs-xl);
+  }
+
+  .dashboard-row.grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  #dashboard-alerts .alert-list {
+    grid-template-columns: 1fr;
+  }
+
+  #monitoring-metrics.grid--3,
+  .performance-stats.grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dwti-progress-list {
+    grid-template-columns: 1fr;
+  }
+
+  .dwti-overview-stats.grid--4,
+  .review-module-stats.grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-row--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .calendar-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Small Tablet / Large Mobile: <= 840px -------------------------------- */
+@media (max-width: 840px) {
+  .sidebar {
+    width: var(--sidebar-width-collapsed);
+  }
+
+  .sidebar-brand__text,
+  .sidebar-nav__label,
+  .sidebar-nav__link span:not(.sidebar-nav__icon),
+  .sidebar-footer__logos {
+    display: none;
+  }
+
+  .sidebar-brand {
+    justify-content: center;
+    padding: var(--space-5) var(--space-3);
+  }
+
+  .sidebar-nav__link {
+    justify-content: center;
+    padding: var(--space-3);
+  }
+
+  .sidebar-footer__mascot {
+    width: 48px;
+    height: 48px;
+  }
+
+  .main-content {
+    margin-left: var(--sidebar-width-collapsed);
+    width: 0;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .login-page {
+    grid-template-columns: 1fr;
+  }
+
+  .login-visual {
+    min-height: 340px;
+  }
+
+  .login-visual__content {
+    padding: var(--space-6);
+    gap: var(--space-6);
+  }
+
+  .login-visual__message {
+    margin-bottom: 0;
+  }
+
+  .login-visual__desc {
+    font-size: var(--fs-sm);
+  }
+
+  .login-form-area {
+    padding: var(--space-8) var(--space-6);
+  }
+}
+
+/* ---- Mobile: <= 640px ------------------------------------------------------ */
+@media (max-width: 640px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .app-header {
+    padding: 0 var(--space-4);
+  }
+
+  .app-header__title {
+    font-size: var(--fs-base);
+  }
+
+  .app-header__right {
+    gap: var(--space-3);
+  }
+
+  .app-header__profile {
+    padding-left: var(--space-2);
+    border-left: none;
+  }
+
+  .page-body {
+    padding: var(--space-4);
+  }
+
+  .app-header__right {
+    min-width: 0;
+  }
+
+  .app-header__profile-text {
+    max-width: 150px;
+    overflow: hidden;
+  }
+
+  .app-header__profile-name,
+  .app-header__profile-role {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .login-card {
+    padding: var(--space-8) var(--space-5);
+  }
+
+  .login-visual {
+    min-height: 300px;
+  }
+
+  .login-visual__content {
+    padding: var(--space-5);
+    gap: var(--space-5);
+  }
+
+  .login-visual__title {
+    font-size: var(--fs-lg);
+  }
+
+  .login-visual__desc {
+    display: none;
+  }
+
+  .login-visual__logo {
+    height: 32px;
+  }
+
+  .login-form-area {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .toggle-row {
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .card {
+    padding: var(--space-5);
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-bar__search {
+    max-width: none;
+  }
+
+  .filter-bar__group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-bar__select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .status-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-3);
+  }
+
+  .status-banner__timestamp {
+    white-space: normal;
+  }
+
+  #monitoring-metrics.grid--3,
+  .performance-stats.grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .reporting-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reporting-controls__field {
+    max-width: none;
+  }
+
+  .report-trend__chart {
+    height: 140px;
+  }
+
+  .dwti-overview-stats.grid--4,
+  .review-module-stats.grid--4,
+  .user-activity-stats.grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-summary__info {
+    margin-right: 0;
+  }
+
+  .profile-summary__action {
+    max-width: none;
+    width: 100%;
+  }
+
+  .notification-filter__row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .notification-filter__field {
+    max-width: none;
+  }
+
+  .notification-item {
+    flex-direction: column;
+  }
+
+  .notification-content__meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .calendar-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .calendar-header__nav {
+    justify-content: space-between;
+  }
+
+  .calendar-header__controls {
+    justify-content: space-between;
+  }
+
+  .calendar-category-filter {
+    flex: 1;
+  }
+
+  .calendar-day {
+    min-height: 76px;
+  }
+
+  .calendar-event {
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,195 @@
+/* =====================================================================
+   SETTINGS.CSS
+   Styling specific to settings.php: Teacher Profile, Personal
+   Information, School Information, and Preferences. Builds on .card,
+   .form-input, .avatar, .btn from components.css.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. SETTINGS LAYOUT
+   --------------------------------------------------------------------- */
+.settings-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* ---------------------------------------------------------------------
+   2. SETTINGS NAV (left rail: jump to section)
+   --------------------------------------------------------------------- */
+.settings-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  position: sticky;
+  top: calc(var(--topbar-height) + var(--space-6));
+}
+
+.settings-nav__link {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.settings-nav__link:hover {
+  background-color: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.settings-nav__link.is-active {
+  background-color: var(--color-accent-soft);
+  color: var(--color-primary);
+  font-weight: var(--fw-semibold);
+}
+
+/* ---------------------------------------------------------------------
+   3. SETTINGS SECTIONS
+   --------------------------------------------------------------------- */
+.settings-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.settings-section {
+  scroll-margin-top: calc(var(--topbar-height) + var(--space-4));
+}
+
+.settings-section__desc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+}
+
+/* Teacher Profile — avatar + upload */
+.profile-editor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-editor__avatar-wrap {
+  position: relative;
+}
+
+.profile-editor__meta {
+  flex: 1;
+}
+
+.profile-editor__name {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-1);
+}
+
+.profile-editor__role {
+  font-size: var(--fs-sm);
+  color: var(--color-text-subtle);
+}
+
+.profile-editor__upload {
+  flex-shrink: 0;
+}
+
+/* Form grid for Personal / School Information */
+.settings-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5) var(--space-6);
+}
+
+.settings-form-grid .form-group--full {
+  grid-column: 1 / -1;
+}
+
+.settings-section__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---------------------------------------------------------------------
+   4. PREFERENCES (toggle list)
+   --------------------------------------------------------------------- */
+.preference-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.preference-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.preference-row:last-child {
+  border-bottom: none;
+}
+
+.preference-row__label {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text);
+}
+
+.preference-row__desc {
+  font-size: var(--fs-xs);
+  color: var(--color-text-subtle);
+}
+
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch__track {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-border-strong);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.switch__track::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.switch input:checked + .switch__track {
+  background-color: var(--color-primary);
+}
+
+.switch input:checked + .switch__track::before {
+  transform: translateX(20px);
+}

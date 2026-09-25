@@ -1,0 +1,220 @@
+/* =========================================================
+   login.css
+   Mathtified Admin Portal — Admin Login Page
+   Split layout: left branding/introduction panel with a
+   subtly blurred background photo, right login form panel.
+   ========================================================= */
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---- Left Panel: Branding / Introduction ---------------------------------- */
+.login-visual {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--color-royal-blue-dark);
+}
+
+/* Background photo layer: kept separate from the overlay and the content so
+   only this layer is blurred. The image path is a placeholder to be supplied
+   by the development team. */
+.login-visual::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  background-image: url("../images/bg.jpeg");
+  background-size: cover;
+  background-position: center 30%;
+  filter: blur(6px);
+  z-index: 0;
+}
+
+/* Royal Blue overlay layer, above the blurred photo, below the content. */
+.login-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(21, 42, 99, 0.88) 0%,
+    rgba(30, 58, 138, 0.74) 100%
+  );
+  z-index: 1;
+}
+
+.login-visual__content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-12);
+}
+
+/* Top: MATHTIFIED / Admin Portal branding (no logo icon here by design) */
+.login-visual__brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.login-visual__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-inverse);
+  letter-spacing: 0.04em;
+}
+
+.login-visual__portal {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 4px;
+}
+
+/* Middle: main message */
+.login-visual__message {
+  max-width: 460px;
+}
+
+.login-visual__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-inverse);
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-4);
+}
+
+.login-visual__desc {
+  font-size: var(--fs-md);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: var(--lh-relaxed);
+}
+
+/* Bottom: School Logo + Institute Logo + copyright */
+.login-visual__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.login-visual__logos {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.login-visual__logo {
+  height: 40px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+}
+
+.login-visual__copyright {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ---- Right Panel: Login Form ------------------------------------------------ */
+.login-form-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-light-gray);
+  padding: var(--space-8);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-10) var(--space-8);
+}
+
+.login-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.login-brand__logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: var(--space-4);
+}
+
+.login-brand__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--color-royal-blue);
+  letter-spacing: 0.02em;
+}
+
+.login-brand__portal {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.login-heading {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.login-heading__title {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-2);
+}
+
+.login-heading__desc {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+}
+
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+}
+
+.login-forgot {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-royal-blue);
+}
+
+.login-forgot:hover {
+  text-decoration: underline;
+}
+
+.login-footer {
+  margin-top: var(--space-8);
+  text-align: center;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}

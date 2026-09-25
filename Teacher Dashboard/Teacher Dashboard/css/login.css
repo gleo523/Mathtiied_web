@@ -1,0 +1,186 @@
+/* =====================================================================
+   LOGIN.CSS
+   Styling specific to teacher-login.php, teacher-register.php,
+   student-login.php, and student-register.php.
+
+   Layout: full-screen client school building background photo with a
+   Royal Blue semi-transparent overlay, and a single centered
+   glassmorphism card holding the logos + auth form. Shares tokens from
+   base.css and components (.btn, .form-input, .alert) from
+   components.css.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. FULL-PAGE BACKGROUND
+   --------------------------------------------------------------------- */
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background-color: var(--color-primary);
+  background-image: url('../images/background_st mary.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Royal Blue overlay at ~60% opacity: keeps the client school building
+   clearly visible behind the card while ensuring text contrast. */
+.auth-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(30, 58, 138, 0.6);
+  z-index: 0;
+}
+
+/* ---------------------------------------------------------------------
+   2. AUTH CARD (glassmorphism, centered vertically + horizontally)
+   --------------------------------------------------------------------- */
+.auth-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-10) var(--space-8);
+}
+
+.auth-card__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.auth-card__logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.auth-card__logo-divider {
+  width: 1px;
+  height: 22px;
+  background-color: var(--color-border-strong);
+}
+
+.auth-card__header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.auth-card__eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.auth-card__title {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-2);
+}
+
+.auth-card__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.auth-card__subtitle a {
+  color: var(--color-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.auth-card__subtitle a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------
+   3. INLINE SUCCESS MESSAGE (shown by the auth-simulation JS)
+   --------------------------------------------------------------------- */
+.auth-success {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+/* ---------------------------------------------------------------------
+   4. FORM LAYOUT
+   --------------------------------------------------------------------- */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+/* Prevent the classic CSS Grid "blowout": grid items default to
+   min-width: auto, which uses the input's intrinsic content size as a
+   floor and can push it past its track, overlapping the next column. */
+.auth-form__row > .form-group {
+  min-width: 0;
+}
+
+.auth-form__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  font-size: var(--fs-sm);
+}
+
+.auth-form__checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.auth-form__checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+}
+
+.auth-form__forgot {
+  color: var(--color-primary);
+  font-weight: var(--fw-medium);
+}
+
+.auth-form__forgot:hover {
+  text-decoration: underline;
+}
+
+.auth-form__footer-note {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-6);
+}
+
+.auth-form__footer-note a {
+  color: var(--color-primary);
+  font-weight: var(--fw-semibold);
+}
+
+.auth-form__footer-note a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,78 @@
+/* =========================================================
+   dashboard.css
+   Mathtified Admin Portal — Dashboard Page
+   ========================================================= */
+
+/* ---- Section Spacing ---------------------------------------------------- */
+.dashboard-summary {
+  margin-bottom: var(--space-6);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dashboard-row {
+  margin-bottom: var(--space-6);
+}
+
+.dashboard-row:last-child {
+  margin-bottom: 0;
+}
+
+#authentication-overview,
+#students-overview {
+  min-width: 0;
+  overflow: hidden;
+}
+
+#students-overview .panel-header > div:last-child {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+/* ---- Summary Cards -------------------------------------------------------- */
+.dashboard-summary-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.dashboard-summary-card__desc,
+.panel-header__title,
+.panel-header__subtitle {
+  overflow-wrap: anywhere;
+}
+
+.dashboard-summary-card__top {
+  margin-bottom: var(--space-3);
+}
+
+.dashboard-summary-card__value--text {
+  font-size: var(--fs-xl);
+  color: var(--color-success);
+}
+
+.dashboard-summary-card__desc {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* ---- Reporting Overview: stat mini-grid ------------------------------------ */
+.dashboard-reporting-stats {
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.dashboard-reporting-stats .stat-card__value {
+  font-size: var(--fs-lg);
+}
+
+/* ---- Alerts Section --------------------------------------------------------- */
+#dashboard-alerts .alert-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
