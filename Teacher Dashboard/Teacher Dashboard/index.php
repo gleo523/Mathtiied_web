@@ -72,7 +72,6 @@
           </p>
           <div class="role-card__actions">
             <a href="teacher-login.php" class="btn btn--primary" aria-label="Log in as a teacher">Log In</a>
-            <a href="teacher-register.php" class="btn btn--ghost" aria-label="Register as a teacher">Register</a>
           </div>
         </article>
 

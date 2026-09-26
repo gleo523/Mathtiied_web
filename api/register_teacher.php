@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
-require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/auth.php';
 
 try {
+    require_role('admin');
     $data = $_POST;
     $first = trim((string)($data['first_name'] ?? ''));
     $last = trim((string)($data['last_name'] ?? ''));

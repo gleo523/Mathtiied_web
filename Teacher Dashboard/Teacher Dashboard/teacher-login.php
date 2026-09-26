@@ -32,8 +32,7 @@
         <p class="auth-card__eyebrow">Teacher Access</p>
         <h1 class="auth-card__title">Welcome back, Teacher</h1>
         <p class="auth-card__subtitle">
-          Log in to continue managing your classes.
-          Not a teacher? <a href="student-login.php">Student login</a>
+          Log in to continue managing your classes. Teacher accounts are created by your school administrator.
         </p>
       </div>
 
@@ -58,22 +57,28 @@
             <input type="checkbox" name="remember">
             Remember me
           </label>
-          <a href="#" class="auth-form__forgot">Forgot password?</a>
+          <a href="#password-recovery" class="auth-form__forgot" id="teacher-forgot-password">Forgot password?</a>
+        </div>
+
+        <div class="alert alert--info auth-success" id="password-recovery" role="status" tabindex="-1">
+          Contact your school administrator and ask them to reset your teacher password in Admin Portal &gt; Management.
         </div>
 
         <button type="submit" class="btn btn--primary btn--full" id="teacher-login-submit">Log In</button>
 
       </form>
 
-      <p class="auth-form__footer-note">
-        Don't have an account yet? <a href="teacher-register.php">Register here</a>
-      </p>
-
     </div>
   </main>
 
   <script>
-    
+    document.getElementById("teacher-forgot-password").addEventListener("click", function (e) {
+      e.preventDefault();
+      var recoveryMsg = document.getElementById("password-recovery");
+      recoveryMsg.style.display = "flex";
+      recoveryMsg.focus();
+    });
+
     document.getElementById("teacher-login-form").addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -82,21 +87,31 @@
 
       submitBtn.disabled = true;
       submitBtn.textContent = "Logging in...";
-      const response = await fetch("../../api/login.php", {
-        method: "POST",
-        body: new FormData(e.currentTarget),
-        headers: { "Accept": "application/json" }
-      });
-      const data = await response.json();
-      if (!response.ok || data.role !== "teacher") {
+      successMsg.style.display = "none";
+      successMsg.classList.remove("alert--error");
+      successMsg.classList.add("alert--success");
+      try {
+        const response = await fetch("../../api/login.php", {
+          method: "POST",
+          body: new FormData(e.currentTarget),
+          credentials: "same-origin",
+          headers: { "Accept": "application/json" }
+        });
+        const data = await response.json();
+        if (!response.ok || data.role !== "teacher") {
+          throw new Error(data.error || "A teacher account is required.");
+        }
+        successMsg.textContent = "Login successful. Redirecting to your dashboard...";
+        successMsg.style.display = "flex";
+        window.location.href = "../dashboard.php";
+      } catch (error) {
+        successMsg.textContent = error.message || "Login could not be completed. Please try again.";
+        successMsg.classList.remove("alert--success");
+        successMsg.classList.add("alert--error");
+        successMsg.style.display = "flex";
         submitBtn.disabled = false;
         submitBtn.textContent = "Log In";
-        successMsg.textContent = data.error || "A teacher account is required.";
-        successMsg.style.display = "flex";
-        return;
       }
-      successMsg.style.display = "flex";
-      window.location.href = "../dashboard.php";
     });
   </script>
 
