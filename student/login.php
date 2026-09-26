@@ -121,7 +121,9 @@
         }
         successMsg.textContent = "Login successful.";
         successMsg.style.display = "flex";
-        setTimeout(function () { window.location.href = "../index.php"; }, 900);
+        setTimeout(function () {
+          window.location.href = handoffId ? "login-success.php" : "../index.php";
+        }, 900);
       } catch (error) {
         successMsg.textContent = error.message;
         successMsg.style.display = "flex";
