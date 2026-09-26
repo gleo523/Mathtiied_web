@@ -2,7 +2,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../config/auth.php';
 if (!current_user() || current_user()['role'] !== 'teacher') {
-    header('Location: Teacher%20Dashboard/teacher-login.php');
+    header('Location: teacher-login.php');
     exit;
 }
 ?>
@@ -17,11 +17,11 @@ if (!current_user() || current_user()['role'] !== 'teacher') {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="Teacher Dashboard/css/base.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/layout.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/components.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/settings.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/responsive.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/settings.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
@@ -30,7 +30,7 @@ if (!current_user() || current_user()['role'] !== 'teacher') {
     <!-- ============ SIDEBAR ============ -->
     <aside class="sidebar">
       <div class="sidebar__brand">
-        <img src="Teacher Dashboard/images/logo_st_mary (2).png" alt="School Logo" class="sidebar__brand-logo">
+        <img src="images/logo_st_mary (2).png" alt="School Logo" class="sidebar__brand-logo">
         <span class="sidebar__brand-name">MathTrack</span>
       </div>
 
@@ -71,7 +71,7 @@ if (!current_user() || current_user()['role'] !== 'teacher') {
       </nav>
 
       <div class="sidebar__footer">
-        <a href="Teacher Dashboard/index.php" class="sidebar__link" onclick="return confirmLogout();">
+        <a href="../api/logout.php" class="sidebar__link" onclick="return confirmLogout();">
           <svg class="sidebar__link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
           <span class="sidebar__link-label">Logout</span>
         </a>
@@ -81,11 +81,11 @@ if (!current_user() || current_user()['role'] !== 'teacher') {
     <!-- ============ TOPBAR ============ -->
     <header class="topbar">
       <div class="topbar__logos">
-        <img src="Teacher Dashboard/images/school_logo.png" alt="School Logo" class="topbar__logo">
+        <img src="images/school_logo.png" alt="School Logo" class="topbar__logo">
         <span class="topbar__logo-divider" aria-hidden="true"></span>
-        <img src="Teacher Dashboard/images/ICS_logo.png" alt="Institute Logo" class="topbar__logo">
+        <img src="images/ICS_logo.png" alt="Institute Logo" class="topbar__logo">
         <span class="topbar__logo-divider" aria-hidden="true"></span>
-        <img src="Teacher Dashboard/images/logo_st_mary (2).png" alt="Partner School Logo" class="topbar__logo">
+        <img src="images/logo_st_mary (2).png" alt="Partner School Logo" class="topbar__logo">
       </div>
 
       <div class="topbar__profile">
@@ -93,7 +93,7 @@ if (!current_user() || current_user()['role'] !== 'teacher') {
           <p class="topbar__profile-name"><?= htmlspecialchars(trim(($teacherUser['first_name'] ?? '') . ' ' . ($teacherUser['last_name'] ?? '')) ?: $teacherUser['username'], ENT_QUOTES, 'UTF-8') ?></p>
           <p class="topbar__profile-role">Mathematics Teacher</p>
         </div>
-        <img src="Teacher Dashboard/images/client.jpg" alt="Teacher Avatar" class="topbar__avatar">
+        <img src="images/client.jpg" alt="Teacher Avatar" class="topbar__avatar">
       </div>
     </header>
 

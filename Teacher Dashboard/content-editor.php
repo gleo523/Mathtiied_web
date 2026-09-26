@@ -2,7 +2,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../config/auth.php';
 if (!current_user() || current_user()['role'] !== 'teacher') {
-    header('Location: Teacher%20Dashboard/teacher-login.php');
+    header('Location: teacher-login.php');
     exit;
 }
 ?>
@@ -12,10 +12,10 @@ if (!current_user() || current_user()['role'] !== 'teacher') {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Content Editor | MathTrack</title>
-  <link rel="stylesheet" href="Teacher Dashboard/css/base.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/layout.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/components.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/responsive.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <style>
     .editor-grid { display:grid; grid-template-columns:220px 1fr; gap:24px; align-items:start; }
     .editor-toolbar { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 16px; }
@@ -32,7 +32,7 @@ if (!current_user() || current_user()['role'] !== 'teacher') {
 <body>
 <div class="app-shell">
   <aside class="sidebar">
-    <div class="sidebar__brand"><img src="Teacher Dashboard/images/logo_st_mary (2).png" alt="School Logo" class="sidebar__brand-logo"><span class="sidebar__brand-name">MathTrack</span></div>
+    <div class="sidebar__brand"><img src="images/logo_st_mary (2).png" alt="School Logo" class="sidebar__brand-logo"><span class="sidebar__brand-name">MathTrack</span></div>
     <nav class="sidebar__nav">
       <span class="sidebar__section-label">Main</span>
       <a href="dashboard.php" class="sidebar__link"><span class="sidebar__link-label">Dashboard</span></a>

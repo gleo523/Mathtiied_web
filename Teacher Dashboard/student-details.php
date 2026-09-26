@@ -7,17 +7,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Teacher Dashboard/css/base.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/layout.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/components.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/students.css">
-  <link rel="stylesheet" href="Teacher Dashboard/css/responsive.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/students.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar">
       <div class="sidebar__brand">
-        <img src="Teacher Dashboard/images/logo_st_mary (2).png" alt="School Logo" class="sidebar__brand-logo">
+        <img src="images/logo_st_mary (2).png" alt="School Logo" class="sidebar__brand-logo">
         <span class="sidebar__brand-name">MathTrack</span>
       </div>
       <nav class="sidebar__nav">
@@ -30,18 +30,18 @@
         <a href="settings.php" class="sidebar__link"><span class="sidebar__link-label">Settings</span></a>
         <a href="change-password.php" class="sidebar__link"><span class="sidebar__link-label">Change Password</span></a>
       </nav>
-      <div class="sidebar__footer"><a href="Teacher Dashboard/index.php" class="sidebar__link"><span class="sidebar__link-label">Logout</span></a></div>
+      <div class="sidebar__footer"><a href="../api/logout.php" class="sidebar__link"><span class="sidebar__link-label">Logout</span></a></div>
     </aside>
 
     <header class="topbar">
       <div class="topbar__logos">
-        <img src="Teacher Dashboard/images/school_logo.png" alt="School Logo" class="topbar__logo">
-        <img src="Teacher Dashboard/images/ICS_logo.png" alt="Institute Logo" class="topbar__logo">
-        <img src="Teacher Dashboard/images/logo_st_mary (2).png" alt="Partner School Logo" class="topbar__logo">
+        <img src="images/school_logo.png" alt="School Logo" class="topbar__logo">
+        <img src="images/ICS_logo.png" alt="Institute Logo" class="topbar__logo">
+        <img src="images/logo_st_mary (2).png" alt="Partner School Logo" class="topbar__logo">
       </div>
       <div class="topbar__profile">
         <div class="topbar__profile-info"><p class="topbar__profile-name">Teacher Portal</p><p class="topbar__profile-role">Student record</p></div>
-        <img src="Teacher Dashboard/images/client.jpg" alt="Teacher Avatar" class="topbar__avatar">
+        <img src="images/client.jpg" alt="Teacher Avatar" class="topbar__avatar">
       </div>
     </header>
 
@@ -52,7 +52,7 @@
       </div>
 
       <section class="student-profile">
-        <img src="Teacher Dashboard/images/student 1.jpeg" alt="Student Avatar" class="student-profile__avatar">
+        <img src="images/student 1.jpeg" alt="Student Avatar" class="student-profile__avatar">
         <div class="student-profile__details">
           <h2 class="student-profile__name" id="student-name">Loading...</h2>
           <div class="student-profile__meta" id="student-meta"></div>

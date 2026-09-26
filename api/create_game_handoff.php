@@ -24,7 +24,7 @@ try {
 
     respond([
         'handoff_id' => $handoffId,
-        'login_url' => $base . '/Teacher%20Dashboard/Teacher%20Dashboard/student-login.php?handoff_id=' . rawurlencode($handoffId),
+        'login_url' => $base . '/student/login.php?handoff_id=' . rawurlencode($handoffId),
         'expires_in' => 600,
     ], 201);
 } catch (Throwable $error) {

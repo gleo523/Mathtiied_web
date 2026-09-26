@@ -9,11 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/base.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/layout.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/components.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/login.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/responsive.css">
 </head>
 <body>
 
@@ -21,11 +21,11 @@
     <div class="auth-card">
 
       <div class="auth-card__logos">
-        <img src="images/school_logo.png" alt="School Logo" class="auth-card__logo">
+        <img src="../Teacher%20Dashboard/images/school_logo.png" alt="School Logo" class="auth-card__logo">
         <span class="auth-card__logo-divider" aria-hidden="true"></span>
-        <img src="images/ICS_logo.png" alt="Institute Logo" class="auth-card__logo">
+        <img src="../Teacher%20Dashboard/images/ICS_logo.png" alt="Institute Logo" class="auth-card__logo">
         <span class="auth-card__logo-divider" aria-hidden="true"></span>
-        <img src="images/logo_st_mary (2).png" alt="Partner School Logo" class="auth-card__logo">
+        <img src="../Teacher%20Dashboard/images/logo_st_mary%20(2).png" alt="Partner School Logo" class="auth-card__logo">
       </div>
 
       <div class="auth-card__header">
@@ -33,7 +33,7 @@
         <h1 class="auth-card__title">Welcome back!</h1>
         <p class="auth-card__subtitle">
           Log in to continue your lessons.
-          Are you a teacher? <a href="teacher-login.php">Teacher login</a>
+          Are you a teacher? <a href="../Teacher%20Dashboard/teacher-login.php">Teacher login</a>
         </p>
       </div>
 
@@ -66,7 +66,7 @@
       </form>
 
       <p class="auth-form__footer-note">
-        Don't have an account yet? <a id="student-register-link" href="student-register.php">Register here</a>
+        Don't have an account yet? <a id="student-register-link" href="register.php">Register here</a>
       </p>
 
     </div>
@@ -76,7 +76,7 @@
     var handoffId = new URLSearchParams(window.location.search).get("handoff_id") || "";
     if (handoffId) {
       document.getElementById("student-register-link").href =
-        "student-register.php?handoff_id=" + encodeURIComponent(handoffId);
+        "register.php?handoff_id=" + encodeURIComponent(handoffId);
     }
     document.getElementById("student-login-form").addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -88,7 +88,7 @@
       submitBtn.textContent = "Logging in...";
       successMsg.style.display = "none";
       try {
-        const response = await fetch("../../api/login.php", {
+        const response = await fetch("../api/login.php", {
           method: "POST",
           body: new FormData(e.currentTarget),
           credentials: "same-origin",
@@ -105,7 +105,7 @@
           game_identity: data.game_identity
         }));
         if (handoffId) {
-          const handoffResponse = await fetch("../../api/authenticate_game_handoff.php", {
+          const handoffResponse = await fetch("../api/authenticate_game_handoff.php", {
             method: "POST",
             credentials: "same-origin",
             headers: {
@@ -121,7 +121,7 @@
         }
         successMsg.textContent = "Login successful.";
         successMsg.style.display = "flex";
-        setTimeout(function () { window.location.href = "index.php"; }, 900);
+        setTimeout(function () { window.location.href = "../index.php"; }, 900);
       } catch (error) {
         successMsg.textContent = error.message;
         successMsg.style.display = "flex";

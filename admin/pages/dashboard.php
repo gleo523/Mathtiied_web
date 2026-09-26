@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once __DIR__ . '/../../../config/admin_guard.php';
+require_once __DIR__ . '/../../config/admin_guard.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -34,7 +34,7 @@ require_once __DIR__ . '/../../../config/admin_guard.php';
         </ul>
         <div class="sidebar-nav__divider"></div>
         <ul class="sidebar-nav__list">
-          <li><a class="sidebar-nav__link" href="../../../api/logout.php" data-admin-logout><span>Logout</span></a></li>
+          <li><a class="sidebar-nav__link" href="../../api/logout.php" data-admin-logout><span>Logout</span></a></li>
         </ul>
       </nav>
     </aside>
@@ -133,10 +133,10 @@ require_once __DIR__ . '/../../../config/admin_guard.php';
       return [record.first_name, record.last_name].filter(Boolean).join(" ") || record.username || "Unknown";
     }
     Promise.allSettled([
-      requestJson("../../../api/admin/admin_summary.php"),
-      requestJson("../../../api/admin/admin_auth_logs.php"),
-      requestJson("../../../api/admin/admin_overview.php"),
-      requestJson("../../../api/admin/admin_teachers.php")
+      requestJson("../../api/admin/admin_summary.php"),
+      requestJson("../../api/admin/admin_auth_logs.php"),
+      requestJson("../../api/admin/admin_overview.php"),
+      requestJson("../../api/admin/admin_teachers.php")
     ]).then(function (results) {
       var summary = results[0].status === "fulfilled" ? results[0].value : {};
       var logsData = results[1].status === "fulfilled" ? results[1].value : {};
@@ -173,7 +173,7 @@ require_once __DIR__ . '/../../../config/admin_guard.php';
     });
     document.querySelector("[data-admin-logout]").addEventListener("click", function (event) {
       event.preventDefault();
-      fetch("../../../api/logout.php").finally(function () { window.location.href = "../index.php"; });
+      fetch("../../api/logout.php").finally(function () { window.location.href = "../index.php"; });
     });
   </script>
 </body>

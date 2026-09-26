@@ -10,21 +10,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="Teacher%20Dashboard/css/base.css">
+  <link rel="stylesheet" href="Teacher%20Dashboard/css/layout.css">
+  <link rel="stylesheet" href="Teacher%20Dashboard/css/components.css">
+  <link rel="stylesheet" href="Teacher%20Dashboard/css/responsive.css">
 </head>
 <body class="portal-body">
 
   <!-- ============ TOP BRAND BAR ============ -->
   <header class="portal-topbar">
     <div class="portal-topbar__brands">
-      <img src="images/school_logo.png" alt="School Logo" class="portal-topbar__logo">
+      <img src="Teacher%20Dashboard/images/school_logo.png" alt="School Logo" class="portal-topbar__logo">
       <span class="portal-topbar__divider" aria-hidden="true"></span>
-      <img src="images/ICS_logo.png" alt="Institute Logo" class="portal-topbar__logo">
+      <img src="Teacher%20Dashboard/images/ICS_logo.png" alt="Institute Logo" class="portal-topbar__logo">
       <span class="portal-topbar__divider" aria-hidden="true"></span>
-      <img src="images/logo_st_mary (2).png" alt="Partner School Logo" class="portal-topbar__logo">
+      <img src="Teacher%20Dashboard/images/logo_st_mary%20(2).png" alt="Partner School Logo" class="portal-topbar__logo">
     </div>
     <p class="portal-topbar__label">Grade 6 Mathematics Learning System</p>
   </header>
@@ -71,7 +71,7 @@
             review modules for your students.
           </p>
           <div class="role-card__actions">
-            <a href="teacher-login.php" class="btn btn--primary" aria-label="Log in as a teacher">Log In</a>
+            <a href="Teacher%20Dashboard/teacher-login.php" class="btn btn--primary" aria-label="Log in as a teacher">Log In</a>
           </div>
         </article>
 
@@ -88,8 +88,8 @@
             personalized review modules.
           </p>
           <div class="role-card__actions">
-            <a href="student-login.php" class="btn btn--primary" aria-label="Log in as a student">Log In</a>
-            <a href="student-register.php" class="btn btn--ghost" aria-label="Register as a student">Register</a>
+            <a href="student/login.php" class="btn btn--primary" aria-label="Log in as a student">Log In</a>
+            <a href="student/register.php" class="btn btn--ghost" aria-label="Register as a student">Register</a>
           </div>
         </article>
 

@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once __DIR__ . '/../../config/auth.php';
+require_once __DIR__ . '/../config/auth.php';
 if (isset($_GET['logout'])) {
     start_auth_session();
     $_SESSION = [];
@@ -112,7 +112,7 @@ if (isset($_GET['logout'])) {
     document.getElementById("admin-login-form").addEventListener("submit", async function (event) {
       event.preventDefault();
       const message = document.getElementById("login-message");
-      const response = await fetch("../../api/login.php", {
+      const response = await fetch("../api/login.php", {
         method: "POST",
         body: new FormData(event.currentTarget),
         headers: { "Accept": "application/json" }

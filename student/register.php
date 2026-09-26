@@ -9,11 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/base.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/layout.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/components.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/login.css">
+  <link rel="stylesheet" href="../Teacher%20Dashboard/css/responsive.css">
 </head>
 <body>
 
@@ -21,18 +21,18 @@
     <div class="auth-card">
 
       <div class="auth-card__logos">
-        <img src="images/school_logo.png" alt="School Logo" class="auth-card__logo">
+        <img src="../Teacher%20Dashboard/images/school_logo.png" alt="School Logo" class="auth-card__logo">
         <span class="auth-card__logo-divider" aria-hidden="true"></span>
-        <img src="images/ICS_logo.png" alt="Institute Logo" class="auth-card__logo">
+        <img src="../Teacher%20Dashboard/images/ICS_logo.png" alt="Institute Logo" class="auth-card__logo">
         <span class="auth-card__logo-divider" aria-hidden="true"></span>
-        <img src="images/logo_st_mary (2).png" alt="Partner School Logo" class="auth-card__logo">
+        <img src="../Teacher%20Dashboard/images/logo_st_mary%20(2).png" alt="Partner School Logo" class="auth-card__logo">
       </div>
 
       <div class="auth-card__header">
         <p class="auth-card__eyebrow">Student Access</p>
         <h1 class="auth-card__title">Start your learning journey</h1>
         <p class="auth-card__subtitle">
-          Already registered? <a href="student-login.php">Log in instead</a>
+          Already registered? <a href="login.php">Log in instead</a>
         </p>
       </div>
 
@@ -41,7 +41,7 @@
       </div>
       <div class="alert alert--error auth-success" id="register-error"></div>
 
-      <form class="auth-form" id="student-register-form" action="../../api/register_student.php" method="post">
+      <form class="auth-form" id="student-register-form" action="../api/register_student.php" method="post">
         <div class="auth-form__row">
           <div class="form-group">
             <label class="form-label" for="student-first-name">First Name</label>
@@ -127,7 +127,7 @@
           successMsg.style.display = "flex";
           var handoff = new URLSearchParams(window.location.search).get("handoff_id");
           setTimeout(function () {
-            window.location.href = "student-login.php" + (handoff ? "?handoff_id=" + encodeURIComponent(handoff) : "");
+            window.location.href = "login.php" + (handoff ? "?handoff_id=" + encodeURIComponent(handoff) : "");
           }, 1200);
         })
         .catch(function (error) {

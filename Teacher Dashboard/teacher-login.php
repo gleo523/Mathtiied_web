@@ -91,7 +91,7 @@
       successMsg.classList.remove("alert--error");
       successMsg.classList.add("alert--success");
       try {
-        const response = await fetch("../../api/login.php", {
+        const response = await fetch("../api/login.php", {
           method: "POST",
           body: new FormData(e.currentTarget),
           credentials: "same-origin",
@@ -103,7 +103,7 @@
         }
         successMsg.textContent = "Login successful. Redirecting to your dashboard...";
         successMsg.style.display = "flex";
-        window.location.href = "../dashboard.php";
+        window.location.href = "dashboard.php";
       } catch (error) {
         successMsg.textContent = error.message || "Login could not be completed. Please try again.";
         successMsg.classList.remove("alert--success");
