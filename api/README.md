@@ -41,10 +41,14 @@ existing teacher-page requests.
 ## Student/game identity
 
 Student registration and login return a stable `game_identity`, which is the
-student's database username. The DataConnector should send that value as
-`username`, `student_id`, `name`, or `user` when calling `sync_data.php`,
-`save_game.php`, or `get_user_progress.php`. The account lookup endpoint also
-returns the same identity:
+student's database username. The browser-to-game handoff returns a one-year
+`game_token`; the Godot client sends it in the `X-Game-Token` header when
+calling `save_game.php` and `get_user_progress.php`. The token is stored hashed
+in `game_access_tokens`, which is created automatically by the game auth
+helper. `save_game.php` stores the latest `game_state` in the student's
+`game_sessions.raw_payload`; `get_user_progress.php` returns it as
+`game_state`. Send `{"clear_save":true}` to clear the remote resume snapshot.
+The account lookup endpoint still returns the same identity:
 
 ```text
 GET /api/check_account.php?student_id=<student-id>
@@ -67,5 +71,7 @@ GET /api/complete_game_handoff.php?handoff_id=<handoff_id>
 ```
 
 The confirmation is one-time and expires after ten minutes. A successful
-response contains `game_identity`, which should be assigned to
-`Global.player_name` before syncing game progress.
+response contains `game_identity`, `user_id`, and `game_token`. Store the token
+locally for the device and include it on cloud save/load requests. The
+`game_token` is a bearer credential and must not be logged or exposed to web
+pages.

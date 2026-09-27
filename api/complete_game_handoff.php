@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/../config/game_handoff.php';
+require_once __DIR__ . '/../config/game_auth.php';
 
 try {
     $handoffId = trim((string) ($_GET['handoff_id'] ?? ''));
@@ -34,6 +35,12 @@ try {
     $update->bind_param('s', $handoffId);
     $update->execute();
 
+    if ($update->affected_rows !== 1) {
+        respond(['authenticated' => false]);
+    }
+
+    $gameToken = issue_game_access_token($connection, (int)$row['user_id']);
+
     respond([
         'authenticated' => true,
         'user_id' => (int) $row['user_id'],
@@ -42,6 +49,8 @@ try {
         'first_name' => $row['first_name'],
         'last_name' => $row['last_name'],
         'game_identity' => $row['username'],
+        'game_token' => $gameToken['token'],
+        'game_token_expires_at' => $gameToken['expires_at'],
     ]);
 } catch (Throwable $error) {
     respond(['authenticated' => false, 'error' => 'Game login confirmation failed.'], 500);
